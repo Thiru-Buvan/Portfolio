@@ -1,19 +1,20 @@
 {
-  "name": "@workspace/portfolio",
-  "version": "0.0.0",
+  "name": "portfolio",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --config vite.config.js --host 0.0.0.0",
-    "build": "vite build --config vite.config.js",
-    "serve": "vite preview --config vite.config.js --host 0.0.0.0"
+    "dev": "vite",
+    "build": "vite build",
+    "build:pages": "vite build --mode ghpages",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "catalog:",
-    "@vitejs/plugin-react": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "tailwindcss": "catalog:",
-    "vite": "catalog:"
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
   }
 }

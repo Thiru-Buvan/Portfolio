@@ -1,36 +1,13 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
-import path from "path";
-export default defineConfig({
-    base: "/",
-    plugins: [
-        react(),
-        tailwindcss(),
-    ],
-    resolve: {
-        alias: {
-            "@assets": path.resolve(import.meta.dirname, "..", "..", "attached_assets"),
-        },
-        dedupe: ["react", "react-dom"],
-    },
-    root: path.resolve(import.meta.dirname),
-    build: {
-        outDir: path.resolve(import.meta.dirname, "dist/public"),
-        emptyOutDir: true,
-    },
-    server: {
-        port: 5173,
-        strictPort: true,
-        host: "0.0.0.0",
-        allowedHosts: true,
-        fs: {
-            strict: true,
-        },
-    },
-    preview: {
-        port: 4173,
-        host: "0.0.0.0",
-        allowedHosts: true,
-    },
-});
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+const REPO_NAME = 'Portfolio';
+
+export default defineConfig(({ mode }) => ({
+  plugins: [react()],
+  base: mode === 'ghpages' ? `/${REPO_NAME}/` : '/',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+  },
+}));
